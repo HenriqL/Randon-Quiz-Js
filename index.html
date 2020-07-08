@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <!--Style CSS-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--JavaScript-->
+    <script defer src="js/questions.js"></script>
+    <script defer src="js/app.js"></script>
+    <title>Random Quiz JavaScript</title>
+</head>
+<body>
+    <!-- home box quiz -->
+    <div class="home-box custom-box hide">
+        <h3>Instruções:</h3>
+        <p>Número total de questões:<span class="total-question"> 5</span></p>
+        <button type="button" class="btn">Começar o Quiz</button>
+    </div>
+    
+
+    <!-- Question box quiz -->
+
+    <div class="quiz-box custom-box">
+        <div class="question-number"></div>
+        <div class="question-text"></div>
+        <div class="option-container"> </div>
+        <div class="next-question-btn">
+            <button type="button" class="btn">Próxima</button>
+        </div>
+        <div class="answers-indicator">
+            
+        </div>
+    </div>
+
+
+    <!-- Result-box-->
+
+    <div class="result-box custom-box hide">
+        <h1>Resultado do Quiz</h1>
+        <table>
+            <tr>
+                <td>Total de questões</td>
+                <td><span class="total-questions">05</span></td>
+            </tr>
+            <tr>
+                <td>Tentativas</td>
+                <td><span class="total-attempt">05</span></td>
+            </tr>
+            <tr>
+                <td>Acertos</td>
+                <td><span class="total-correct">05</span></td>
+            </tr>
+            <tr>
+                <td>Erros</td>
+                <td><span class="total-wrong">05</span></td>
+            </tr>
+            <tr>
+                <td>Porcentagem</td>
+                <td><span class="percentage">05</span></td>
+            </tr>
+            <tr>
+                <td>Pontuação total</td>
+                <td><span class="total-score">05</span></td>
+            </tr>
+        </table>
+        <button type="button" class="btn">Tentar novamente</button>
+        <button type="button" class="btn">Voltar para o inicio</button>
+
+    </div>
+</body>
+</html>
