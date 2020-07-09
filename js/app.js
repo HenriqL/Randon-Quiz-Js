@@ -33,6 +33,10 @@ function getNewQuestion(){
     for(let i=0; i<optionLen; i++){
         availableOptions.push(i)
     }
+    optionContainer.innerHTML = '';
+    //Deley de entrada das animações
+    let animationDelay =0.15;
+
     //Adiciona as opções no html
     for(let i=0; i<optionLen; i++){
     //randomiza as opções 
@@ -45,15 +49,41 @@ function getNewQuestion(){
     const option = document.createElement("div");
     option.innerHTML = currentQuestion.options[optionIndex];
     option.id = optionIndex;
+    option.style.animationDelay = animationDelay + 's';
+    animationDelay = animationDelay + 0.15;
     option.className = "option";
     optionContainer.appendChild(option)
+    option.setAttribute("onclick","getResult(this)");
 
     }
-
-
     questionCounter++
-    
+}
+function getResult(element){
+    const id = parseInt(element.id);
+    if(id === currentQuestion.answer){
+        //Adiciona a cor verde para as questões corretas
+        element.classList.add("correct");
+        //Adiciona a cor vermelha para as questões erradas
+    }else{
+        element.classList.add("wrong");
+        //Caso erre a questão, essa constante irá mostrar a questão correta 
+        const optionLen = optionContainer.children.length;
+        for(let i=0; i<optionLen; i++){
+            if(parseInt(optionContainer.children[i].id) === currentQuestion.answer){
+                optionContainer.children[i].classList.add("correct");
 
+            }
+        
+        }
+    }
+    unclickableOptions();
+}
+//Evita que as outras alternativas sejam clicaveis após ter feito a escolha 
+function unclickableOptions(){
+    const optionLen = optionContainer.children.length;
+    for(let i=0; i<optionLen; i++){
+        optionContainer.children[i].classList.add("already-answered");
+    }
 }
 //Faz o botão Next setar uma questão randomizada 
 function next(){

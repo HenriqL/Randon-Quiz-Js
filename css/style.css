@@ -17,7 +17,8 @@ body{
     --bg-color: #141414;
     --primary-color: #7a04dd;
     --box-color:#f2f1f0;
-    --questions-color:#737271;
+    --questions-color:#afadad;
+    --text-color:#08071a;
 }
 
 .hide{
@@ -93,7 +94,7 @@ body{
 }
 .quiz-box .question-text{
     font-size: 22px;
-    color: var(--questions-color);
+    color: var(--text-color);
     line-height: 28px;
     font-weight: 400;
     padding: 20px 0;
@@ -112,7 +113,55 @@ body{
     font-weight: 500;
     cursor: pointer;
     text-transform: capitalize;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+    position: relative;
+    overflow: hidden;
 }
+.quiz-box .option-container .option.already-answered{
+    pointer-events: none;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.quiz-box .option-container .option.correct::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(52, 180, 52);
+    z-index: -1;
+    animation: slideInLeft .5s ease forwards;
+}
+@keyframes slideInLeft{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+.quiz-box .option-container .option.wrong::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(238, 73, 73);
+    z-index: -1;
+    animation: slideInLeft .5s ease forwards;
+}
+
 .quiz-box .btn{
     margin: 15px 0;
 }
@@ -151,7 +200,7 @@ body{
     border: 1px solid #c1c1c1;
     padding: 8px 15px;
     font-weight: 500;
-    color: var(--questions-color);
+    color: var(--text-color);
     width: 50%;
     text-align: left;
     font-size: 18px;
