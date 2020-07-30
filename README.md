@@ -6,3 +6,5 @@ Random Quiz Js
 Projeto ainda em desenvovilmento, mas a ideia é fazer um quiz totalmente randomizado, as questões e ordens das opções de respostas, ultilizando apenas JavaScrip.
 
 Irei está atualizando o projeto diariamente. 
+
+pequno teste
